@@ -1,0 +1,36 @@
+.formOuterContainer{
+    max-width: 25%;
+}
+.form-input{
+    height: 50px;
+    width: 100%;
+    border-radius: 50px;
+    text-align: center;
+    margin: 10px 10px 10px 0;
+    padding: 5px;
+    border: none;
+    outline: none;
+    transform: scale(1);
+    transition: transform 0.4s;
+}
+.form-input:active{
+    transform: scale(1.4);
+    transition: transform 0.5s;
+}
+.joinButton{
+    height: 50px;
+    width:150px;
+    background-color:transparent;
+    text-align: center;
+    margin-left: 85px;
+    margin-top:15px;
+    border-radius: 50px;
+    border-color:#C3073F;
+    color:white;
+    font-size:30px;
+    cursor: pointer;
+}
+
+.joinButton:hover{
+    border-color: #950740
+}
