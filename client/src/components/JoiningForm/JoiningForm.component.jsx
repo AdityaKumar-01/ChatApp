@@ -43,6 +43,7 @@ const JoiningForm = ({socket}) => {
                     value = {name}
                     onChange={(event) => setName(event.target.value)}
                     placeholder='Your Name'
+                    // max="20"
                     required
                 />
                 <input

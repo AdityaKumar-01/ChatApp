@@ -1,4 +1,20 @@
 .RoomInfo{
     height:10vh;
     background-color:green;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 0 40px;
+}
+
+.roomName{
+    display: flex;
+    align-items:center;
+   font-size:18px; 
+}
+
+.onlineIcon{
+    height:6px;
+    width:6px;
+    margin-right:20px;
 }
