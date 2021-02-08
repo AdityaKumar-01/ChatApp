@@ -28,7 +28,16 @@ io.on('connection',(socket) => {
         socket.broadcast.to(user.room).emit('message', {user: 'admin', text :`${user.name} hopped into the ${user.room}`, type: 'text' });
 
         callback();
+    });
+
+    socket.on('sendMessage', () =>{
+        const user= getUser(socket.id);
+
+        io.to(user.room).emit('message',{user:user.name, text: message});
+
+        callback();
     })
+
     console.log('we have a new connection');
 
     socket.on('disconnect', () => {
