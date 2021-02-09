@@ -1,6 +1,6 @@
-export const updateUsers = user =>({
+export const updateUsers = users =>({
     type: "UPDATE_USERS_IN_ROOM",
-    payload: user
+    payload: users
 });
 
 export const addMessage = message => ({

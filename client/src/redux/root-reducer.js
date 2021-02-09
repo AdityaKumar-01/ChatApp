@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import userReducer from './user/user.reducer';
+import roomDataReducer from './roomData/roomData.reducer';
 
 
 export default combineReducers({
-    user:userReducer
+    user:userReducer,
+    roomData: roomDataReducer
 });
 

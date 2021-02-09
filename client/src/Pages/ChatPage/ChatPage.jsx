@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import queryString from 'query-string';
 import io from 'socket.io-client';
@@ -16,23 +16,28 @@ import './ChatPage.styles.css'
 
 
 let socket;
-
+const ENDPOINT = 'localhost:5000';
 
 const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers}) =>{
-     
-    const ENDPOINT = 'localhost:5000';
     
     let history = useHistory();
-
     useEffect(() =>{ 
         socket = io(ENDPOINT);
-        const { name, room } = queryString.parse(history.location.search);
+        const { name, room, uniCode } = queryString.parse(history.location.search);
         
+        socket.emit('join', {name,room,uniCode }, (error)=>{
+            if(error){
+                console.log(error);
+            }
+        })
         setCurrentUser(name);
         setCurrentRoom(room);
-        socket.on('roomData', ({room,user}) =>{
-            console.log("hey tehrer");
-            // updateUsers(users)
+        socket.on('ActiveUsers', ({users}) =>{
+            console.log("hey there");
+            updateUsers(users);
+            //  users.map((user) => (
+            //     console.log(user.name)
+            // ))
         })
     }, [history.location.search]);
 

@@ -24,7 +24,7 @@ const JoiningForm = ({setUniCode}) => {
 
     const handleClick = (event) => {
         event.preventDefault()
-        history.push(`/chat?name=${name}&room=${room}`);
+        history.push(`/chat?name=${name}&room=${room}&uniCode=${uni}`);
        
     }
     return(

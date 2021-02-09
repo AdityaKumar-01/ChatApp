@@ -25,12 +25,12 @@ const Messages = () => {
             <div>lorem106</div>
             <div>lorem106</div>
             <div>lorem106</div>
-            <div>lorem106</div>
-            <div>lorem106</div>
-            <div>lorem106</div>
-            <div>lorem106</div>
-            <div>lorem106</div>
-            <div>lorem106</div>
+            <div>lorem10qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6</div>
+            <div>lorem106lorem10qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6</div>
+            <div>lorem106lorem10qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6</div>
+            <div>lorem106lorem10qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6</div>
+            <div>lorem106lorem10qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6</div>
+            <div>lorem106lorem10qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6</div>
             <div>lorem106</div>
             <div>lorem106</div>
             <div>lorem106</div>

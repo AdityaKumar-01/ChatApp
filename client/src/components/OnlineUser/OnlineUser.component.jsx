@@ -6,25 +6,27 @@ import './OnlineUser.styles.css'
 
 import onlineIcon from '../../icons/onlineIcon.png';
 import { connect } from 'react-redux';
-const OnlineUser = ({uniCode}) => {
+const OnlineUser = ({users}) => {
     return (
         <div className="OnlineUser">
           <span>
               <h3>Users in room</h3>
           </span>
-           <motion.span 
-
+          {users.map((user,i) => (
+            <motion.span 
                 className="userSpan">
                 <img src={onlineIcon} alt="online icon" className='onlineIcon' />
                 <span>
-                    Aditya #{uniCode}
+                   { user.name} #{user.uniCode}
                 </span> 
             </motion.span>
+          ))}
+           
            
         </div>
     )
 }
 const mapStateToProps = (state) => ({
-    uniCode : state.user.uniCode
+    users:state.roomData.users
 })
 export default connect(mapStateToProps)(OnlineUser);

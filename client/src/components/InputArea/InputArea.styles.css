@@ -1,6 +1,6 @@
 .InputArea{
-    min-height:10vh;
-    background-color: #4E4E50;
+    min-height:1vh;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     /* align-items: flex-end; */

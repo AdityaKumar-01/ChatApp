@@ -1,8 +1,10 @@
-.EmojiSelector{
+.EmojiIcon{
     height:100%;
     display:flex;
     justify-content: center;
     align-items:center;
     width:5%;
     padding-left: 60px;
+    cursor: pointer;
 }
+

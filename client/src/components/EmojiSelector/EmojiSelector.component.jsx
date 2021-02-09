@@ -1,14 +1,14 @@
 import React from 'react';
-import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
-import './EmojiSelector.styles.css';
+import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
 
+import './EmojiSelector.styles.css'
 const EmojiSelector = () =>{
     return(
         <span className="EmojiSelector">
             <span className="EmojiIcon">
-                <EmojiEmotionsIcon 
+                <EmojiEmotionsOutlinedIcon 
                     fontSize="large"
-                    style={{ color: "white" }}
+                    style={{ color: "rgb(28, 50, 70)" }}
                  />
             </span>
             

@@ -3,7 +3,7 @@ const INITIAL_STATE={
     messgages:[],
 }
 
-const roomDataReducer = (state = INITIAL_STATE, action){
+const roomDataReducer = (state = INITIAL_STATE, action)=>{
     switch(action.type){
         case "UPDATE_USERS_IN_ROOM":
             return{
