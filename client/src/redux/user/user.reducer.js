@@ -1,4 +1,5 @@
 const INITIAL_STATE={
+    uniCode:null,
     currentUser:null,
     currentRoom:null
 }
@@ -11,10 +12,14 @@ const userReducer = (state = INITIAL_STATE, action) =>{
                 currentUser:action.payload
         }
         case "SET_CURRENT_ROOM":
-            console.log(action.payload, "room name");
             return{
                 ...state,
                 currentRoom:action.payload
+            }
+        case "SET_UNICODE":
+            return{
+                ...state,
+                uniCode:action.payload
             }
         default:
             return state;

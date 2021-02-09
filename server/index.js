@@ -18,17 +18,34 @@ app.use(router);
 
 io.on('connection',(socket) => {
     
-    socket.on('join', ({name, room}, callback) =>{
-        const {error, user} = addUser({id:socket.id, name, room});
+    // socket.on('join', ({name, room}, callback) =>{
+    //     const {error, user} = addUser({id:socket.id, name, room});
 
-        if(error) return callback(error);
+    //     if(error) return callback(error);
 
-        socket.join(user.room);
+    //     socket.join(user.room);
+    //     io.to(user.room).emit('test',{data:"this is me "})
+    //     socket.broadcast.to(user.room).emit('message', {user: 'admin', text :`${user.name} hopped into the ${user.room}`, type: 'text' });
+    //     // io.to(user.room).emit('ActiveUsers', {users: getUsersInRoom(user.room) });
+    //      io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+    //     // console.log(getUsersInRoom(user.room));
+    //     callback();
+    // });
 
-        socket.broadcast.to(user.room).emit('message', {user: 'admin', text :`${user.name} hopped into the ${user.room}`, type: 'text' });
+    socket.on('join', ({ name, room }, callback) => {
+    const { error, user } = addUser({ id: socket.id, name, room });
 
-        callback();
-    });
+    if(error) return callback(error);
+
+    socket.join(user.room);
+
+    socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
+    socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+
+    io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+
+    callback();
+  });
 
     socket.on('sendMessage', () =>{
         const user= getUser(socket.id);

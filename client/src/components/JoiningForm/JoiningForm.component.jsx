@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 
 import { useHistory } from 'react-router-dom';
-import swal from 'sweetalert';
 import './JoiningForm.styles.css'; 
 import {motion} from 'framer-motion';
 
-const JoiningForm = ({socket}) => {
+const JoiningForm = () => {
 
     const [name, setName] = useState("");
     const [room , setRoom] = useState("");
@@ -14,24 +13,7 @@ const JoiningForm = ({socket}) => {
 
     const handleClick = (event) => {
         event.preventDefault()
-        socket.emit('join', { name, room }, (error) => {
-            if(error) {
-                swal({
-                    title: "Oops Error!!!!",
-                    text: error,
-                    icon: "error",
-                    button: "Check Again",
-                    });
-                setName("");
-                setRoom("");
-            }
-            else if(name && room){
-                // setCurrentUser(name);
-                // setCurrentRoom(room);
-                history.push(`/chat?name=${name}&room=${room}`)
-            }
-                
-        })
+        history.push(`/chat?name=${name}&room=${room}`);
        
     }
     return(
@@ -43,7 +25,6 @@ const JoiningForm = ({socket}) => {
                     value = {name}
                     onChange={(event) => setName(event.target.value)}
                     placeholder='Your Name'
-                    // max="20"
                     required
                 />
                 <input
