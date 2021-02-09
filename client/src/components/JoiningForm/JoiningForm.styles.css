@@ -34,3 +34,8 @@
 .joinButton:hover{
     border-color: #950740
 }
+
+.uniSpan p{
+    text-align: center;
+    color:#C3073F;
+}

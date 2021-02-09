@@ -13,7 +13,8 @@ const MessageInput = () =>{
                     className="input"
                     required
                 />
-                <button><SendRoundedIcon style={{ fontSize: 28 }}/></button>
+                {/* <button className="msgbtn"><SendRoundedIcon style={{ fontSize: 28 }}/></button> */}
+                <button className="msgbtn">SEND</button>
             </form>
         </span>
         

@@ -1,10 +1,11 @@
 .RoomInfo{
     height:10vh;
-    background-color:green;
+    background-color:#1A1A1D;
     display: flex;
     align-items:center;
     justify-content:space-between;
     padding: 0 40px;
+    font-family: 'Bangers', cursive;
 }
 
 .roomName{
@@ -12,7 +13,10 @@
     align-items:center;
    font-size:18px; 
 }
-
+.roomName span{
+    color:white;
+    /* letter-spacing:2px; */
+}
 .onlineIcon{
     height:6px;
     width:6px;

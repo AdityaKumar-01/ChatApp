@@ -8,11 +8,8 @@ import ChatPage from './Pages/ChatPage/ChatPage';
 
 const App = () => (
     <Router>
-    
-        <Route path = '/' exact component={() => <JoinPage />}/>
-        <Route path = '/chat' component={() => <ChatPage />}/>
-        {/* <Route path='/' exact component={JoinPage}/>
-        <Route path='/chat' component={ChatPage} /> */}
+        <Route path='/' exact component={JoinPage}/>
+        <Route path='/chat' component={ChatPage} />
     </Router>
 )
 

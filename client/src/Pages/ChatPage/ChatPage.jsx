@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 
 import { connect } from 'react-redux';
 import { setCurrentUser, setCurrentRoom} from './../../redux/user/user.action';
-import { setUserList, setRoom } from './../../redux/onlineUser/onlineUser.action';
+import { updateUsers } from './../../redux/roomData/roomData.action';
 
 import RoomInfo from '../../components/RoomInfo/RoomInfo.component';
 import Messages from '../../components/Messages/Messages.component';
@@ -17,46 +17,25 @@ import './ChatPage.styles.css'
 
 let socket;
 
-const ENDPOINT = 'localhost:5000';
-socket = io(ENDPOINT);
-const ChatPage = ({ location, setCurrentUser,setCurrentRoom}) =>{
+
+const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers}) =>{
+     
+    const ENDPOINT = 'localhost:5000';
     
-    // const [name, setName] = useState("");
-    // const [room , setRoom] = useState("");
-     let history = useHistory();
+    let history = useHistory();
 
     useEffect(() =>{ 
+        socket = io(ENDPOINT);
         const { name, room } = queryString.parse(history.location.search);
         
-        // setRoom(room);
-        // setName(name);
-        
-        socket.emit('join', { name, room }, (error) => {
-
         setCurrentUser(name);
         setCurrentRoom(room);
-        setRoom(room);
-
+        socket.on('roomData', ({room,user}) =>{
+            console.log("hey tehrer");
+            // updateUsers(users)
         })
-
-        
-        // socket.on('message', (text) =>{
-        //     setMsg(text)
-        // })
-
-            // console.log(users);
     }, [history.location.search]);
 
-    useEffect(() => {
-    // socket.on('message', message => {
-    //   setMessages(messages => [ ...messages, message ]);
-    // });
-    
-    socket.on("roomData", ({ users }) => {
-    //   setUsers(users);
-    console.log(users);
-    });
-}, []);
     return(
         <div className="ChatPage">
             <div className="LeftPane">
@@ -73,7 +52,7 @@ const ChatPage = ({ location, setCurrentUser,setCurrentRoom}) =>{
 const mapDispatchToProps = dispatch => ({
     setCurrentUser: name =>dispatch(setCurrentUser(name)),
     setCurrentRoom: room =>dispatch(setCurrentRoom(room)),
-    setRoom: room => dispatch(setRoom(room))
+    updateUsers: user => dispatch(updateUsers(user)),
 });
 
 export default connect(null ,mapDispatchToProps)(ChatPage);

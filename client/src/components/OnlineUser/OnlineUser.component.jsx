@@ -5,24 +5,26 @@ import {motion} from 'framer-motion';
 import './OnlineUser.styles.css'
 
 import onlineIcon from '../../icons/onlineIcon.png';
-const OnlineUser = () => {
+import { connect } from 'react-redux';
+const OnlineUser = ({uniCode}) => {
     return (
         <div className="OnlineUser">
           <span>
               <h3>Users in room</h3>
           </span>
            <motion.span 
-                whileHover={{x:10, color:"pink"}}
-                transition={{type:"spring", duration:1, stiffness: 400}}
+
                 className="userSpan">
                 <img src={onlineIcon} alt="online icon" className='onlineIcon' />
                 <span>
-                    Aditya
+                    Aditya #{uniCode}
                 </span> 
             </motion.span>
            
         </div>
     )
 }
-
-export default OnlineUser;
+const mapStateToProps = (state) => ({
+    uniCode : state.user.uniCode
+})
+export default connect(mapStateToProps)(OnlineUser);

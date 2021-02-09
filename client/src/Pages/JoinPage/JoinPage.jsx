@@ -4,7 +4,8 @@ import JoiningForm from './../../components/JoiningForm/JoiningForm.component';
 
 import {motion} from 'framer-motion';
 
-import './JoinPage.styles.css'
+import './JoinPage.styles.css';
+
 const BrandNameVaraints = {
     initialState:{
         scale:3.8
@@ -14,7 +15,10 @@ const BrandNameVaraints = {
         rotate:-8
     }
 }
+
 const JoinPage = ({socket}) =>{
+
+   
     return(
         <div className="JoinPage">
             <motion.div className="BrandName"

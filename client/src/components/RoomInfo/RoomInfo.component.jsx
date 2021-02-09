@@ -12,7 +12,7 @@ const RoomInfo = ({currentRoom}) =>{
                 <img src={onlineIcon} alt="online icon" className='onlineIcon' />
                 <span >{currentRoom}</span>
             </div>
-             <span className="closeIcon"> <img src={closeIcon} alt="online icon" className='closeIcon' /></span>
+             <span className="closeIcon"><a href="/" ><img src={closeIcon} alt="online icon" className='closeIcon' /></a></span>
         </div>
         
     )
