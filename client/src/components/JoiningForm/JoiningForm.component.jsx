@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
+import swal from 'sweetalert';
 
 import { useHistory } from 'react-router-dom';
 import './JoiningForm.styles.css'; 
@@ -24,8 +25,21 @@ const JoiningForm = ({setUniCode}) => {
 
     const handleClick = (event) => {
         event.preventDefault()
-        history.push(`/chat?name=${name}&room=${room}&uniCode=${uni}`);
-       
+        if(!name || !room){
+           
+                swal({
+                    title: "Oops Error!!!!",
+                    text: "Check Details",
+                    icon: "error",
+                    button: "Check Again",
+                    });
+                setName("");
+                setRoom("");
+        }
+        else{
+            history.push(`/chat?name=${name}&room=${room}&uniCode=${uni}`);
+        }
+        
     }
     return(
         <div className="formOuterContainer">

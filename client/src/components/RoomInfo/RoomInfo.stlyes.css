@@ -1,5 +1,5 @@
-.RoomInfo{
-    height:10vh;
+/* .RoomInfo{
+    min-height:10vh;
     background-color:#1A1A1D;
     display: flex;
     align-items:center;
@@ -15,10 +15,42 @@
 }
 .roomName span{
     color:white;
-    /* letter-spacing:2px; */
 }
 .onlineIcon{
     height:6px;
     width:6px;
     margin-right:20px;
+} */
+
+.RoomInfo{
+    background-color:#1A1A1D;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+    width: 85%;
+    position:fixed;
+    top: 0;
+    z-index: 1000;
+}
+.onlineIcon{
+    margin-right: 5%;
+}
+.roomName{
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    color: white;
+}
+.roomName span{
+    color:white;
+    font-family: 'Bangers', cursive;
+    font-size: 18px;
+}
+.closeIcon{
+    display: flex;
+    flex: 0.5;
+    justify-content: flex-end;
+    margin-right: 5%;
 }

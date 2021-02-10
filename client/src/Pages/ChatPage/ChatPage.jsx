@@ -1,25 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useState,useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import queryString from 'query-string';
 import io from 'socket.io-client';
 
 import { connect } from 'react-redux';
 import { setCurrentUser, setCurrentRoom} from './../../redux/user/user.action';
-import { updateUsers } from './../../redux/roomData/roomData.action';
+import { updateUsers, addMessage } from './../../redux/roomData/roomData.action';
 
-import RoomInfo from '../../components/RoomInfo/RoomInfo.component';
-import Messages from '../../components/Messages/Messages.component';
-import InputArea from './../../components/InputArea/InputArea.components';
 import OnlineUser from '../../components/OnlineUser/OnlineUser.component';
+import ChatArea from './../../components/ChatArea/ChatArea.component';
 
 import './ChatPage.styles.css'
+
 
 
 let socket;
 const ENDPOINT = 'localhost:5000';
 
-const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers}) =>{
+const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers, addMessage}) =>{
     
+    const [message, setMessage] = useState("");
+
+    const onEmojiClick = (emojiObject) => setMessage(message+ emojiObject)
     let history = useHistory();
     useEffect(() =>{ 
         socket = io(ENDPOINT);
@@ -33,24 +35,34 @@ const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers}) =>{
         setCurrentUser(name);
         setCurrentRoom(room);
         socket.on('ActiveUsers', ({users}) =>{
-            console.log("hey there");
             updateUsers(users);
-            //  users.map((user) => (
-            //     console.log(user.name)
-            // ))
         })
     }, [history.location.search]);
 
+    const sendMessage = (event) => {
+        
+        event.preventDefault();
+        if(message){
+            socket.emit('sendMessage', message, () => setMessage(''));
+        }
+    }
+    useEffect(() =>{
+        
+        socket.on('message', (msg) =>{
+            addMessage(msg);
+
+        })
+    }, []);
+    
     return(
         <div className="ChatPage">
-            <div className="LeftPane">
                 <OnlineUser />
-            </div>
-            <div className="RightPane">
-                <RoomInfo />
-                <Messages />
-                <InputArea />
-            </div>
+                <ChatArea
+                    sendMessage = {sendMessage}
+                    message={message} 
+                    setMessage={setMessage}
+                    onEmojiClick={onEmojiClick}
+                />
         </div>
 )};
 
@@ -58,6 +70,7 @@ const mapDispatchToProps = dispatch => ({
     setCurrentUser: name =>dispatch(setCurrentUser(name)),
     setCurrentRoom: room =>dispatch(setCurrentRoom(room)),
     updateUsers: user => dispatch(updateUsers(user)),
+    addMessage: msg => dispatch(addMessage(msg)),
 });
 
 export default connect(null ,mapDispatchToProps)(ChatPage);

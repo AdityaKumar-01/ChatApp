@@ -7,4 +7,13 @@
     padding-left: 60px;
     cursor: pointer;
 }
+.emojiPicker{
+    transform: translate(50px,-450px); /* Standard syntax */
+    z-index:100;
+    position: absolute;
+}
 
+.EmojiSelector{
+    display:flex;
+    flex-direction:row
+}

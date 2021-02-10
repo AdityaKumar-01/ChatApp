@@ -1,8 +1,12 @@
 .OnlineUser{
     display: flex;
     flex-direction: column;
+    background-color:#1A1A1D;
+    max-width:15%;
+    min-width:15%;
+    border-right: 1px solid white;
+    /* overflow: auto; */
 }
-
 .OnlineUser h3{
     text-align: center;
     font-size: 23px;
@@ -11,7 +15,7 @@
     border-bottom: 1px solid white;
     padding-bottom:17px;
     font-family: 'Bangers', cursive;
-
+    background-color:#1A1A1D;
 }
 
 .userSpan{

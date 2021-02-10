@@ -2,7 +2,6 @@ import React from 'react';
 
 import JoiningForm from './../../components/JoiningForm/JoiningForm.component';
 
-import {motion} from 'framer-motion';
 
 import './JoinPage.styles.css';
 
@@ -16,17 +15,17 @@ const BrandNameVaraints = {
     }
 }
 
-const JoinPage = ({socket}) =>{
+const JoinPage = () =>{
 
    
     return(
         <div className="JoinPage">
-            <motion.div className="BrandName"
+            <div className="BrandName"
             variants={BrandNameVaraints}
                 initial="initialState"
                 animate="finalState"
-            >CODELAZA !!</motion.div>
-            <JoiningForm socket={socket}/>
+            >CODELAZA !!</div>
+            <JoiningForm/>
         </div>
         
 )};

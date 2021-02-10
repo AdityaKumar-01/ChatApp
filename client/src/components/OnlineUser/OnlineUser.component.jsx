@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 const OnlineUser = ({users}) => {
     return (
         <div className="OnlineUser">
-          <span>
+          <span className="OnlineUserHeader">
               <h3>Users in room</h3>
           </span>
           {users.map((user,i) => (
@@ -21,8 +21,6 @@ const OnlineUser = ({users}) => {
                 </span> 
             </motion.span>
           ))}
-           
-           
         </div>
     )
 }

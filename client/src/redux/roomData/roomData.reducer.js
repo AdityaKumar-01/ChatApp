@@ -1,6 +1,6 @@
 const INITIAL_STATE={
     users:[],
-    messgages:[],
+    messages:[],
 }
 
 const roomDataReducer = (state = INITIAL_STATE, action)=>{

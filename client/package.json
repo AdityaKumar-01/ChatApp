@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
+    "emoji-mart": "^3.0.0",
+    "emoji-picker-react": "^3.4.2",
     "framer-motion": "^3.3.0",
     "query-string": "^6.13.8",
     "random-number": "0.0.9",
