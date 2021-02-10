@@ -1,6 +1,7 @@
 import React from 'react';
 
 import JoiningForm from './../../components/JoiningForm/JoiningForm.component';
+import { motion } from 'framer-motion';
 
 
 import './JoinPage.styles.css';
@@ -20,11 +21,11 @@ const JoinPage = () =>{
    
     return(
         <div className="JoinPage">
-            <div className="BrandName"
+            <motion.div className="BrandName"
             variants={BrandNameVaraints}
                 initial="initialState"
                 animate="finalState"
-            >CODELAZA !!</div>
+            >CODELAZA !!</motion.div>
             <JoiningForm/>
         </div>
         
