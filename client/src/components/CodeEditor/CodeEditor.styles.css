@@ -15,6 +15,7 @@
 .CodeEditor{
     display:flex;
     flex-direction:row;
+    z-index: 1;
 }
 
 .EditorPopup{
