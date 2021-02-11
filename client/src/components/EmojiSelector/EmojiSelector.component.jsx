@@ -7,7 +7,6 @@ const EmojiSelector = ({onEmojiClick}) =>{
 
     const [showEmjPicker, setEmjPicker] = useState(false)
     const emjIconClick = () =>{
-        console.log(showEmjPicker);
         setEmjPicker(!showEmjPicker)
     }
 

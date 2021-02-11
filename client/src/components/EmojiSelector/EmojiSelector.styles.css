@@ -3,8 +3,7 @@
     display:flex;
     justify-content: center;
     align-items:center;
-    width:5%;
-    padding-left: 60px;
+    padding-left: 40px;
     cursor: pointer;
 }
 .emojiPicker{

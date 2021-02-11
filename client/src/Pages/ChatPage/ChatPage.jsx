@@ -20,6 +20,7 @@ const ENDPOINT = 'localhost:5000';
 const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers, addMessage}) =>{
     
     const [message, setMessage] = useState("");
+    const [code, setCode] = useState("");
 
     const onEmojiClick = (emojiObject) => setMessage(message+ emojiObject)
     let history = useHistory();
@@ -46,6 +47,15 @@ const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers, addMes
             socket.emit('sendMessage', message, () => setMessage(''));
         }
     }
+
+    const sendCode = (event) => {
+
+        event.preventDefault();
+        if(code){
+            socket.emit('sendCode', code, () => setCode(''));
+        }
+
+    }
     useEffect(() =>{
         
         socket.on('message', (msg) =>{
@@ -61,6 +71,9 @@ const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers, addMes
                     sendMessage = {sendMessage}
                     message={message} 
                     setMessage={setMessage}
+                    sendCode={sendCode}
+                    code={code}
+                    setCode={setCode}
                     onEmojiClick={onEmojiClick}
                 />
         </div>

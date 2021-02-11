@@ -9,3 +9,8 @@
   width:85%;
   background-color:#1A1A1D;
 }
+.popupSection{
+  display: flex;
+  justify-content:space-between;
+  padding-right:10px;
+}

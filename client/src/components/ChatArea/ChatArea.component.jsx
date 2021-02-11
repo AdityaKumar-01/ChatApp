@@ -5,7 +5,7 @@ import InputArea from './../InputArea/InputArea.components';
 import Messages from './../Messages/Messages.component';
  
 import './ChatArea.styles.css';
-const ChatArea = ({sendMessage, message, setMessage,onEmojiClick}) => {
+const ChatArea = ({sendMessage, message, setMessage,sendCode,code, setCode,onEmojiClick}) => {
     return(
         <div className="ChatArea">
             <RoomInfo />
@@ -14,6 +14,9 @@ const ChatArea = ({sendMessage, message, setMessage,onEmojiClick}) => {
                 sendMessage = {sendMessage}
                 message={message} 
                 setMessage={setMessage}
+                sendCode={sendCode}
+                code={code}
+                setCode={setCode}
                 onEmojiClick={onEmojiClick}
                 />
         </div>
