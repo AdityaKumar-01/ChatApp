@@ -24,8 +24,8 @@ io.on('connection',(socket) => {
         if(error) return callback(error);
 
         socket.join(user.room);
-        socket.emit('message',{user:'admin',text:`Welcome to the room ${user.room}`})
-        socket.broadcast.to(user.room).emit('message', {user: 'admin', text :`${user.name} hopped into the ${user.room}`});
+        socket.emit('message',{user:'admin',text:`${user.name}, welcome to the room ${user.room} !!`, type:"text"})
+        socket.broadcast.to(user.room).emit('message', {user: 'admin', text :`${user.name} hopped into the ${user.room} !!`, type:"text"});
          io.to(user.room).emit('ActiveUsers', { users: getUsersInRoom(user.room) });
         callback();
     });
@@ -33,17 +33,22 @@ io.on('connection',(socket) => {
 
     socket.on('sendMessage', (message, callback) => {
         const user= getUser(socket.id);
-        io.to(user.room).emit('message',{user:user.name, text: message});
+        io.to(user.room).emit('message',{user:user.name, text: message, type:"text"});
 
         callback();
     })
 
-    console.log('we have a new connection');
+    socket.on('sendCode',(message,callback) => {
+        const user= getUser(socket.id);
+        io.to(user.room).emit('message',{user:user.name, text: message, type:"code"});
+
+        callback();
+    })
 
     socket.on('disconnect', () => {
         const user = removeUser(socket.id);
         if(user){
-            io.to(user.room).emit('message', {user: 'admin', text:`${user.name} just left the room`});
+            io.to(user.room).emit('message', {user: 'admin', text:`${user.name} just left the room`, type:"text"});
             io.to(user.room).emit('ActiveUsers', { users: getUsersInRoom(user.room) });
 
         }
