@@ -12,9 +12,9 @@ const server = http.createServer(app);
 
 const options = { cors:true };
 const io = require('socket.io')(server, options);
-app.use(cors());
-app.use(router);
 
+app.use(router);
+app.use(cors());
 
 io.on('connection',(socket) => {
     
