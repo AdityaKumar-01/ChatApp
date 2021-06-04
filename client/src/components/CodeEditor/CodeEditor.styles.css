@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 .Editor{
-    transform: translate(545px,-580px); /* Standard syntax */
+    transform: translate(500px,-500px); /* Standard syntax */
     position: absolute;
 }
 
@@ -17,10 +17,12 @@
     flex-direction:row;
     z-index: 1;
 }
-
 .EditorPopup{
     display:flex;
     flex-direction:column;
+    height: 75vh;
+    width:500px;
+    zoom: 90%;
 }
 .editorOptions{
     display:flex;
@@ -89,4 +91,12 @@
 .sendCode:hover{
     background-color:#950740;
     transition:background-color 0.5s
+}
+
+.code-logo{
+    color:white;
+}
+
+.code-logo:hover{
+    color: rgb(163, 163, 163);
 }

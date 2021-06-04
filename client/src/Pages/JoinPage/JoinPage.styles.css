@@ -32,3 +32,10 @@ html, body {
 * {
   box-sizing: border-box;
 }
+
+
+@media (max-width: 1200px){
+    .JoinPage{
+        display: none;
+    }
+}

@@ -15,7 +15,7 @@ import './ChatPage.styles.css'
 
 
 let socket;
-const ENDPOINT = 'localhost:5000';
+const ENDPOINT = 'https://codelaza-backend.herokuapp.com/';
 
 const ChatPage = ({ location, setCurrentUser,setCurrentRoom, updateUsers, addMessage}) =>{
     

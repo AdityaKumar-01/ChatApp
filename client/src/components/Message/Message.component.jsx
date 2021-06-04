@@ -83,7 +83,7 @@ const Message = ({ message: { text, user, type }, name, language, theme }) => {
                         theme={theme.toLowerCase()}
                         name="coding-space-message"
                         highlightActiveLine
-                        showGutter
+                        showGutter={false}
                         fontSize={15}
                         showPrintMargin={false}
                         editorProps={{ $blockScrolling: false }}

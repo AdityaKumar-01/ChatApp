@@ -15,37 +15,32 @@ const EmojiSelector = ({onEmojiClick}) =>{
         onEmojiClick(emoji);
     };
 
-    return(
-        <span className="EmojiSelector">
+    return (
+      <span className="EmojiSelector">
+      
         <span className="emojiPicker">
-            {showEmjPicker ? 
-                (
-                     <Picker
-                        onSelect={addEmoji}
-                        title="Pick your emoji…"
-                        emoji="point_up"
-                        theme='dark'
-                        showSkinTones='false'
-                />
-                ):
-                (
-                    null
-                )}
+          {showEmjPicker ? (
+            <Picker
+              onSelect={addEmoji}
+              title="Pick your emoji…"
+              emoji="point_up"
+              theme="dark"
+              showSkinTones="false"
+              position="absolute"
+
+            />
+          ) : null}
         </span>
-        
-            <span 
-                className="EmojiIcon"
-                
-            >
-                <EmojiEmotionsOutlinedIcon 
-                    fontSize="large"
-                    style={{ color: "white" }}
-                    onClick={emjIconClick}
-                 />
-            </span>
-            
+
+        <span className="EmojiIcon">
+          <EmojiEmotionsOutlinedIcon
+            fontSize="large"
+            onClick={emjIconClick}
+            className="EmojiFace"
+          />
         </span>
-    )
+      </span>
+    );
 }
 
 export default EmojiSelector;
