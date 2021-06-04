@@ -1,10 +1,6 @@
 
 
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-### CODELAZA
+<h1 align="center">CODELAZA</h1>
 This is a chat app developed to ease the process of sharing code with your mates. Central feature of this app is that it comes with code editor !!
 you can send code normal text messages and emojis too. 
 Code editor support various languages like c, cpp, python, assembly, java, php and many more. And any developer can't imagine an editor without themes thus,
